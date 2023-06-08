@@ -1,0 +1,19 @@
+Clave: 45u-W60H463
+
+
+# Corregir ortografia
+# Crear una instancia de SpellChecker
+spell = SpellChecker()
+
+# Definir función para corregir la ortografía
+def corregir_ortografia(Nivel_Academico):
+    palabras = Nivel_Academico.split()
+    palabras_corregidas = [spell.correction(palabra) for palabra in palabras]
+    texto_corregido = ' '.join(palabras_corregidas)
+    return texto_corregido
+
+# Aplicar la corrección ortográfica a la columna
+data['Nivel_Academico'] = data['Nivel_Academico'].apply(corregir_ortografia)
+
+# Imprimir el DataFrame resultante
+print(data)
